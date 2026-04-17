@@ -13,6 +13,17 @@ if ! command -v node &> /dev/null; then
     exit 1
 fi
 
+# 1.5. Clone repository if package.json does not exist
+if [ ! -f "package.json" ]; then
+    echo "📥 Memuat turun projek dari GitHub..."
+    if [ -d "crypto-agent" ]; then
+        echo "⚠️  Folder 'crypto-agent' sudah wujud. Sila padam atau tukar nama folder tersebut dahulu."
+        exit 1
+    fi
+    git clone https://github.com/hkm2604/Jasny-crypto-agent.git crypto-agent
+    cd crypto-agent
+fi
+
 # 2. Install dependencies
 echo "📦 Memasang dependensi..."
 npm install
