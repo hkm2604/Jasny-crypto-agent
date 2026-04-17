@@ -5,11 +5,16 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Initialize exchange (Bybit)
-const exchange = new ccxt.bybit({
-  apiKey: process.env.BYBIT_API_KEY || "",
-  secret: process.env.BYBIT_SECRET || "",
+const exchangeOptions: any = {
   enableRateLimit: true,
-});
+};
+
+if (process.env.BYBIT_API_KEY && process.env.BYBIT_SECRET) {
+  exchangeOptions.apiKey = process.env.BYBIT_API_KEY;
+  exchangeOptions.secret = process.env.BYBIT_SECRET;
+}
+
+const exchange = new ccxt.bybit(exchangeOptions);
 
 /**
  * Public Data Tools
