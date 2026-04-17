@@ -19,7 +19,6 @@ Sesuai jika anda ingin sentiasa mengemaskini kod (sync) antara pelbagai PC.
 ### Pilihan B: Salinan Manual (Copy-Paste)
 Sesuai untuk pemasangan pantas tanpa akaun GitHub.
 1. Salin folder `crypto-agent` ke PC baru anda.
-   - The AI will automatically discover the modular agent and skills located in the `.agents/` folder once it's indexed.
 2. **Nota**: Pastikan anda tidak menyalin folder `node_modules/` atau `build/` untuk mengelakkan ralat versi.
 
 ### Pilihan C: Pemasangan Pantas via Curl
