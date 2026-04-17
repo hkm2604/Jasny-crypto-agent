@@ -4,17 +4,11 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Initialize exchange (Bybit)
-const exchangeOptions: any = {
+// Initialize public exchange (Bybit) without any API keys
+const exchange = new ccxt.bybit({
   enableRateLimit: true,
-};
-
-if (process.env.BYBIT_API_KEY && process.env.BYBIT_SECRET) {
-  exchangeOptions.apiKey = process.env.BYBIT_API_KEY;
-  exchangeOptions.secret = process.env.BYBIT_SECRET;
-}
-
-const exchange = new ccxt.bybit(exchangeOptions);
+  timeout: 30000, // Increase timeout to 30 seconds to prevent intermittent hit-or-miss issues
+});
 
 /**
  * Public Data Tools
@@ -96,27 +90,48 @@ export async function calculateIndicators({ symbol, indicators }: { symbol: stri
  */
 
 export async function getAccountInfo() {
-  if (!exchange.apiKey || !exchange.secret) {
+  const apiKey = process.env.BYBIT_API_KEY;
+  const secret = process.env.BYBIT_SECRET;
+
+  if (!apiKey || !secret) {
     throw new Error("API Keys not configured. Please add BYBIT_API_KEY and BYBIT_SECRET to .env file.");
   }
-  const balance = await exchange.fetchBalance();
+
+  const privateExchange = new ccxt.bybit({
+    apiKey,
+    secret,
+    enableRateLimit: true,
+    timeout: 30000,
+  });
+
+  const balance = await privateExchange.fetchBalance();
   return {
     content: [{ type: "text", text: JSON.stringify(balance.total, null, 2) }],
   };
 }
 
 export async function executeOrder({ symbol, side, type, amount, price }: { symbol: string; side: "buy" | "sell"; type: "market" | "limit"; amount: number; price?: number }) {
-  if (!exchange.apiKey || !exchange.secret) {
+  const apiKey = process.env.BYBIT_API_KEY;
+  const secret = process.env.BYBIT_SECRET;
+
+  if (!apiKey || !secret) {
     throw new Error("API Keys not configured. Please add BYBIT_API_KEY and BYBIT_SECRET to .env file.");
   }
+
+  const privateExchange = new ccxt.bybit({
+    apiKey,
+    secret,
+    enableRateLimit: true,
+    timeout: 30000,
+  });
 
   // Safety check: Don't execute real trades unless explicitly confirmed (future safety)
   // For now, we attempt to call the exchange.
   let order;
   if (type === "market") {
-    order = await exchange.createOrder(symbol, type, side, amount);
+    order = await privateExchange.createOrder(symbol, type, side, amount);
   } else {
-    order = await exchange.createOrder(symbol, type, side, amount, price);
+    order = await privateExchange.createOrder(symbol, type, side, amount, price);
   }
 
   return {
