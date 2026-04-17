@@ -1,8 +1,5 @@
 {
-  "mcpServers": {
-    "crypto-trading": {
-      "command": "npx",
-      "args": ["-y", "crypto-trading-agent"]
-    }
+  "mcp": {
+    "crypto-trading": "npx -y crypto-trading-agent"
   }
 }
