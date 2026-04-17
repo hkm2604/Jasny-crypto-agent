@@ -77,7 +77,7 @@ Sekarang, beritahu AI anda bagaimana untuk menggunakan ejen ini sebagai MCP Serv
 Tambah konfigurasi ini:
 ```json
 {
-  "mcp": {
+  "mcpServers": {
     "crypto-trading": {
       "command": "npx",
       "args": ["-y", "crypto-trading-agent"]
