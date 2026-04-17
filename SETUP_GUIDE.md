@@ -24,9 +24,9 @@ Sesuai untuk pemasangan pantas tanpa akaun GitHub.
 ### Pilihan C: Pemasangan Pantas via Curl
 Sesuai untuk Linux/macOS yang mempunyai `curl`. Jika anda sudah berada di dalam folder projek:
 ```bash
-curl -sSL https://raw.githubusercontent.com/<user>/crypto-agent/main/setup.sh | bash
+curl -sSL https://raw.githubusercontent.com/hkm2604/Jasny-crypto-agent/main/setup.sh | bash
 ```
-*(Gantikan URL dengan URL repository GitHub anda yang sebenar)*
+*(Pastikan anda mempunyai akses internet)*
 
 ---
 
