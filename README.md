@@ -44,4 +44,35 @@ Setiap kali anda berinteraksi, ejen akan mengembalikan:
 
 ---
 
+## 🛠️ Senarai Kemahiran (Tools)
+
+Ejen ini dibekalkan dengan keupayaan teknikal yang boleh dipanggil secara automatik:
+
+### 📡 Data Pasaran (Tiada API Key Diperlukan)
+- `getTicker`: Mendapatkan harga semasa dan statistik 24 jam.
+- `getOHLCV`: Membaca data graf (Open, High, Low, Close, Volume).
+- `getOrderBook`: Melihat kedalaman pasaran (Bids/Asks).
+- `getMarketBehavior`: Analisis volatiliti dan trend harga 30 hari.
+- `calculateIndicators`: Menghitung RSI, SMA, EMA, MACD, dan Bollinger Bands.
+
+### 🔐 Dagangan Peribadi (Memerlukan API Key Bybit)
+- `getAccountInfo`: Menyemak baki akaun dan aset yang dipegang.
+- `executeOrder`: Menjalankan arahan Beli/Jual (Market atau Limit).
+
+---
+
+## 💬 Contoh Interaksi (Prompts)
+
+Anda boleh mula berbual dengan AI anda menggunakan arahan seperti:
+
+> "Tolong buat analisis teknikal RSI dan MACD untuk koin XRP/USDT hari ini."
+
+> "Cari 3 koin yang sedang berada dalam keadaan oversold (RSI < 30) untuk swing trade."
+
+> "Gunakan strategi const-3 untuk syiling SOL/USDT. Adakah ia selamat untuk dibeli sekarang?"
+
+> "Berapakah baki akaun Bybit saya bagi aset USDT?" (Memerlukan API)
+
+---
+
 *Didorong dan direka dengan fokus pada pengurusan masa automatik dalam ekosistem kripto yang semakin rencam. Sentiasa pastikan anda lakukan semakan risiko (due diligence) sendiri.*
