@@ -12,8 +12,8 @@ Pilih salah satu daripada dua kaedah di bawah untuk memasukkan fail projek ke da
 Sesuai jika anda ingin sentiasa mengemaskini kod (sync) antara pelbagai PC.
 1. Buka terminal dan jalankan:
    ```bash
-   git clone <url-repository-anda>
-   cd crypto-agent
+   git clone https://github.com/hkm2604/Jasny-crypto-agent.git
+   cd Jasny-crypto-agent
    ```
 
 ### Pilihan B: Salinan Manual (Copy-Paste)
