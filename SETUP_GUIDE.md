@@ -78,7 +78,10 @@ Tambah konfigurasi ini:
 ```json
 {
   "mcp": {
-    "crypto-trading": "npx -y crypto-trading-agent"
+    "crypto-trading": {
+      "type": "local",
+      "command": ["npx", "-y", "crypto-trading-agent"]
+    }
   }
 }
 ```
