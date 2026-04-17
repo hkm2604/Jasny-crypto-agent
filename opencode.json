@@ -1,0 +1,8 @@
+{
+  "mcp": {
+    "crypto-trading": {
+      "command": "npx",
+      "args": ["-y", "crypto-trading-agent"]
+    }
+  }
+}
